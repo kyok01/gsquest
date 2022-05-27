@@ -1,10 +1,19 @@
 /* ゲーム選択画面用のCSS */
+body {
+  background-image: url(../img/space.jpeg);
+  color: white;
+}
+
+h1 img{
+  width: 120px;
+}
+
 #output {
     overflow: auto;
     height: 500px;
     display: flex;
     justify-content: space-around;
-    width: 800px;
+    width: 1300px;
     border: 1px solid black;
   }
   
@@ -13,7 +22,7 @@
     height: 500px;
     display: flex;
     justify-content: space-around;
-    width: 800px;
+    width: 1300px;
     border: 1px solid black;
   }
   
