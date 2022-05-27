@@ -91,6 +91,8 @@
         const msg = {
           uname: $("#uname").val(),
           chara: selectChara,
+          position: 0,
+          gameNum: 0,
         };
         const newPostRef = push(dbRef);
         console.log(newPostRef.key);
