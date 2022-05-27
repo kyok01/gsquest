@@ -1,5 +1,6 @@
 body{
-    background-color: rgb(38, 38, 38);
+    /* background-color: rgb(38, 38, 38); */
+    background-image: url(../img/space.jpeg);
 }
 
 .canvas_wrapper{
