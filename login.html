@@ -97,7 +97,9 @@
         set(newPostRef, msg);
         //localStorageに保存
         const userId = newPostRef.key;
-        localStorage.setItem("userId", userId);
+        $.when(localStorage.setItem("userId", userId)).done(function () {
+          location.href = "./opening.html";
+        });
       });
     </script>
   </body>
