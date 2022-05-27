@@ -111,8 +111,6 @@
       let userId;
 
       //読み込み時の処理
-      // localstorageにkeyが保存されているのなら、新しいアカウント生成ができないようにする。
-      // gssKeyとは、game system sample keyの略
       if (localStorage.getItem("userId") != null) {
         userId = localStorage.getItem("userId");
       }else{
@@ -333,13 +331,10 @@
                 ) {
                   console.log(`enter押せた`); //debug
                   const msg = {
-                    uname: snapshot.val().uname,
-                    text: snapshot.val().text,
-                    position: snapshot.val().position,
                     gameNum: snapshot.val().position,
                   };
                   update(child(ref(db), `users/${userId}`), msg);
-                  window.location.href = `./gameSample${
+                  window.location.href = `./gameNum${
                     snapshot.val().position
                   }.html`;
                 }
@@ -364,7 +359,7 @@
         h += '">';
         h += msg.uname;
         h += "<br>";
-        h += msg.text;
+        h += msg.chara;
         h += "</p>";
         $(`#output__column${msg.position}`).append(h);
       });
