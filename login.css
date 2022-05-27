@@ -1,0 +1,14 @@
+body {
+  text-align: center;
+}
+
+.charalist {
+  display: flex;
+  justify-content: center;
+}
+
+.chara {
+  margin: 30px;
+  padding: 40px;
+  border: 1px solid black
+}

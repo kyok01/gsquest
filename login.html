@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ログイン画面</title>
+    <link rel="stylesheet" href="./login.css" />
+  </head>
+  <body>
+    <h1>
+      あなたの名前を登録してください
+    </h1>
+    <div>名前：<input type="text" id="uname" /></div>
+    <h1>
+      アバターを選択してください
+    </h1>
+    <div class="charalist">
+      <div class="chara" id="charaA">A</div>
+      <div class="chara" id="charaB">B</div>
+      <div class="chara" id="charaC">C</div>
+      <div class="chara" id="charaD">D</div>
+    </div>
+    <button id="send">決定</button>
+
+    <!-- <script>
+  // function submitName(){
+  //   location.href='./opening.html';
+  // }
+</script> -->
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- JQuery -->
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        push,
+        set,
+        onChildAdded,
+        remove,
+        onChildRemoved,
+        get,
+        onChildChanged,
+        child,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // import environment variables from env.js
+      import {
+        envApiKey,
+        envAuthDomain,
+        envDatabaseURL,
+        envProjectId,
+        envStorageBucket,
+        envMessagingSenderId,
+        envApiId,
+      } from "./js/env.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: envApiKey,
+        authDomain: envAuthDomain,
+        databaseURL: envDatabaseURL,
+        projectId: envProjectId,
+        storageBucket: envStorageBucket,
+        messagingSenderId: envMessagingSenderId,
+        appId: envApiId,
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const dbRef = ref(db, "users");
+
+      //Global variables
+      let selectChara;
+
+      $('div[id^="chara"]').on("click", function () {
+        console.log(this);
+        console.log(this.id);
+        selectChara = this.id;
+      });
+
+      $("#send").on("click", function () {
+        const msg = {
+          uname: $("#uname").val(),
+          chara: selectChara,
+        };
+        const newPostRef = push(dbRef);
+        console.log(newPostRef.key);
+        set(newPostRef, msg);
+        //localStorageに保存
+        const userId = newPostRef.key;
+        localStorage.setItem("userId", userId);
+      });
+    </script>
+  </body>
+</html>
