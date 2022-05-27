@@ -422,8 +422,8 @@
         const data = snapshot.val();
         console.log(data); //debug
         for (let i = 1; i <= 7; i++) {
-          console.log(data[`game${i}`]); //debug
-          if (data[`game${i}`] == "clear") {
+          console.log(data[`gameNum${i}`]); //debug
+          if (data[`gameNum${i}`] == "clear") {
             $(`#output__column${i}`).addClass("red");
           }
         }
