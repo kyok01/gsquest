@@ -8,8 +8,8 @@
   <body>
     <!-- コンテンツ表示画面 -->
     <h1><img src="./img/image.png" alt=""></h1>
-      <h2>ゲーム選択</h2>
-      <p>←か→のカーソルキーで移動、Enterでゲーム選択</p>
+      <!-- <h2>ゲーム選択</h2> -->
+      <p>　　　　←か→のカーソルキーで移動、Enterでゲーム選択。クリアした惑星は黄色で表示されます。</p>
       <div id="output">
         <div id="output__column0" class="output__column">スタート<img src="./img/Starbase.png" alt="">
         </div>
@@ -33,8 +33,8 @@
         <li>※ゲーム3-4には、何もまだ設定していないです</li> -->
       </ul>
 
-      <h2>今いる星のゲーム</h2>
-      <div id="gameDescription"></div>
+      <!-- <h2>今いる星のゲーム</h2>
+      <div id="gameDescription"></div> -->
     </div>
     <div id="ranking">
       <!-- <h2>スコアランキング</h2>
@@ -354,13 +354,23 @@
       onChildAdded(dbRef, function (data) {
         const msg = data.val();
         const key = data.key; //ユニークキーの取得
-        // アカウントの一覧表示
+        // キャラの表示
+        let charaURL;
+        if (msg.chara == "charaA"){
+          charaURL = "./img/cute_girl.png"
+        }
+        if (msg.chara == "charaB"){
+          charaURL = "./img/cute_boy.png"
+        }
+        // アカウントの一覧表
         let h = '<p data-id="';
         h += key;
         h += '">';
         h += msg.uname;
         h += "<br>";
-        h += msg.chara;
+        h += '<img src="';
+        h += charaURL;
+        h += '" alt="" id="chara">';
         h += "</p>";
         $(`#output__column${msg.position}`).append(h);
       });
@@ -375,12 +385,22 @@
         console.log(`p[data-id="${key}"]`);
         const newPosition = data.val().position;
         console.log(newPosition);
+        // キャラの表示
+        let charaURL;
+        if (msg.chara == "charaA"){
+          charaURL = "./img/cute_girl.png"
+        }
+        if (msg.chara == "charaB"){
+          charaURL = "./img/cute_boy.png"
+        }
         let h = '<p data-id="';
         h += key;
         h += '">';
         h += msg.uname;
         h += "<br>";
-        h += msg.chara;
+        h += '<img src="';
+        h += charaURL;
+        h += '" alt="" id="chara">';
         h += "</p>";
         $(`#output__column${newPosition}`).append(h);
       });
