@@ -1,5 +1,7 @@
 body {
+  background-image: url(./img/space.jpeg);
   text-align: center;
+  color: white;
 }
 
 .charalist {
@@ -11,4 +13,24 @@ body {
   margin: 30px;
   padding: 40px;
   border: 1px solid black
+}
+
+div.container {
+  padding: 40px;
+}
+
+img {
+  border-radius: 14px;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+input[type=radio]:checked + label img {
+  box-shadow: 0 0 0 5px rgb(255, 0, 0);
+}
+
+#send {
+  margin-top: 50px;
 }
