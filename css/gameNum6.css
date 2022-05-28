@@ -1,6 +1,12 @@
+@font-face {
+	font-family: 'basefont';
+    src: url('../fonts/PixelMplus12-Regular.ttf') format('truetype');
+}
+
 body{
     /* background-color: rgb(38, 38, 38); */
     background-image: url(../img/space.jpeg);
+    font-family: 'basefont';
 }
 
 .canvas_wrapper{

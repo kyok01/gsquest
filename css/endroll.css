@@ -1,9 +1,15 @@
+@font-face {
+	font-family: 'basefont';
+  src: url('../fonts/PixelMplus12-Regular.ttf') format('truetype');
+}
+
 body {
     background-color:black;
     font-size:20pt;
     font-weight:bold;
     text-align:center;
     color:white;
+    font-family: 'basefont';
 }
 
 h2 {
