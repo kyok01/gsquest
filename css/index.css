@@ -1,7 +1,13 @@
 /* ゲーム選択画面用のCSS */
+@font-face {
+	font-family: 'basefont';
+  src: url('../fonts/PixelMplus12-Regular.ttf') format('truetype');
+}
+
 body {
   background-image: url(../img/space.jpeg);
   color: white;
+  font-family: 'basefont';
 }
 
 h1 img{
