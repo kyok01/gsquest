@@ -1,5 +1,11 @@
+@font-face {
+	font-family: 'basefont';
+  src: url('../fonts/PixelMplus12-Regular.ttf') format('truetype');
+}
+
 body {
   background-image:url('./img/space.jpeg') ;
+  font-family: 'basefont';
 }
 a {
   color: white;

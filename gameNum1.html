@@ -133,9 +133,11 @@
             if (words.length === 0) {
               const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
               const result = document.getElementById("result");
-              result.textContent = `Finished! ${elapsedTime} seconds!`;
+              result.textContent = `Game over! ${elapsedTime} seconds!`;
               if (elapsedTime <= 45) {
                   update(ref(db, `users/${userId}`), {gameNum1: "clear"});
+                  result.textContent = `Clear!! ${elapsedTime} seconds!`;
+                  setTimeout(function(){window.location.href("./index.html")}, 3000)
               }
               return;
             }
